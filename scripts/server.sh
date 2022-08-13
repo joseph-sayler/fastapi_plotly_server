@@ -1,0 +1,1 @@
+uvicorn app.server.main:asgi_app --port 8001 --reload  --reload-dir /home/jsayler/Projects/fastapi_plotly/app/server/
