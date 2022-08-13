@@ -9,4 +9,4 @@ def hello_world():
     return "<p>Hello, World!</p>"
 
 
-wsgi = WsgiToAsgi(app)
+asgi_app = WsgiToAsgi(app)
