@@ -7,8 +7,10 @@ asgi_app = WsgiToAsgi(app)
 
 
 @app.route("/")
-def hello_world():
+def display_plots():
     url = "http://localhost:8000/"
-    response = requests.get(url)
-    message = response.json().get("message")
-    return render_template("index.html", api_call=message)
+    response1 = requests.get(f"{url}barchart")
+    response2 = requests.get(f"{url}treemap")
+    bar = response1.json().get("plot")
+    tree = response2.json().get("plot")
+    return render_template("index.html", barGraphJSON=bar, treeMapJSON=tree)
