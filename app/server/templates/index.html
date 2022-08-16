@@ -3,12 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
     <title>Flask Test</title>
 </head>
 
 <body>
-    <h1>{{ api_call }}</h1>
-    <h2>(this is a test app)</h2>
+    <h1>Plotly Graphs!</h1>
+    <div id='barchart' class='chart' ”></div>
+    <p></p>
+    <div id='treemap' class='chart' ”></div>
 </body>
+
+
+<script type='text/javascript'>
+    var barchart = {{ barGraphJSON | safe}};
+    var treemap = {{ treeMapJSON | safe}};
+    Plotly.plot('barchart', barchart, {});
+    Plotly.plot('treemap', treemap, {});
+</script>
 
 </html>
